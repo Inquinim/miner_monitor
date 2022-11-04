@@ -113,7 +113,7 @@ def query_miners(var_dict):
         print(f"Num neurons: {len(neurons)}")
 
     # Add neurons (miners) with trust lower than the threshold, exclude validators
-    neurons_below = [nn for nn in neurons if nn[0].trust < trust_threshold and len(nn[0].bonds) == 0]
+    neurons_below = [nn[0] for nn in neurons if nn[0].trust < trust_threshold and len(nn[0].bonds) == 0]
             
     # Sort by trust from low to high
     neurons_below.sort(key=lambda x: x.trust, reverse=True)
