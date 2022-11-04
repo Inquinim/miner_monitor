@@ -7,7 +7,7 @@ from bittensor._cli.cli_impl import CacheException
 import requests
 from netaddr import IPAddress
 import pytz
-from miner_monitor import PING_INTERVAL, WEBHOOK_MINERS_GLOBAL
+from utils import PING_INTERVAL, WEBHOOK_MINERS_GLOBAL
 
 # Adapted from:
 # https://github.com/opentensor/bittensor/blob/master/bittensor/_cli/cli_impl.py
