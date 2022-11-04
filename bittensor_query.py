@@ -17,12 +17,12 @@ def query_scheduler(sc, var_dict):
     """
     
     dt = datetime.strftime(datetime.now(tz=pytz.timezone(var_dict['pytz'])), "%d/%m/%Y at %I:%M %p")
-    print(f"Pinging {var_dict['user']} on {dt}")
+    print(f"Pinging {var_dict['wallet_name']} on {dt}")
 
     # Query the metagraph for the miners found on the local system under the provided wallet name
     query_miners(var_dict)
 
-    print(f"Finished {var_dict['user']} on {dt}")
+    print(f"Finished {var_dict['wallet_name']} on {dt}")
 
     requests.post(
         WEBHOOK_MINERS_GLOBAL, {"content": f"Pinged metagraph on {dt}"}
