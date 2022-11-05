@@ -7,7 +7,6 @@ from bittensor._cli.cli_impl import CacheException
 import requests
 from netaddr import IPAddress
 import pytz
-from utils import PING_INTERVAL, WEBHOOK_MINERS_GLOBAL
 
 # Adapted from:
 # https://github.com/opentensor/bittensor/blob/master/bittensor/_cli/cli_impl.py
@@ -16,8 +15,8 @@ def query_scheduler(sc, var_dict):
     """
     """
     
-    dt = datetime.strftime(datetime.now(tz=pytz.timezone(var_dict['pytz'])), "%d/%m/%Y at %I:%M %p")
-    print(f"Pinging {var_dict['wallet_name']} on {dt}")
+    dt = datetime.strftime(datetime.now(tz=pytz.timezone(var_dict['PY_TIMEZONE'])), "%d/%m/%Y at %I:%M %p")
+    print(f"Pinging {var_dict['WALLET_NAME']} on {dt}")
 
     # Query the metagraph for the miners found on the local system under the provided wallet name
     query_miners(var_dict)
@@ -25,10 +24,10 @@ def query_scheduler(sc, var_dict):
     print(f"Finished {var_dict['wallet_name']} on {dt}")
 
     requests.post(
-        WEBHOOK_MINERS_GLOBAL, {"content": f"Pinged metagraph on {dt}"}
+        var_dict['WEBHOOK_GLOBAL'], {"content": f"{var_dict['USER']}: Pinged metagraph on {dt}"}
     )
 
-    sc.enter(PING_INTERVAL, 1, query_scheduler, (sc, var_dict))
+    sc.enter(var_dict["PING_INTERVAL"], 1, query_scheduler, (sc, var_dict))
 
 
 def send_dc_notification(message: str, webhook: str):
@@ -46,7 +45,7 @@ def send_dc_notification(message: str, webhook: str):
 
 def query_miners(var_dict):
     """"""
-    wallet_name, subtensor_network, subtensor_chain_endpoint, trust_threshold, py_timezone, debug, webhook = var_dict.values()
+    user, wallet_name, subtensor_network, subtensor_chain_endpoint, trust_threshold, py_timezone, debug, webhook = var_dict.values()
     timezone = pytz.timezone(py_timezone)
     args = ["overview", "--wallet.name", wallet_name, "--subtensor.network", subtensor_network]
     if subtensor_chain_endpoint is not None:
