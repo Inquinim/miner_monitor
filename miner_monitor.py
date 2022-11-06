@@ -1,7 +1,8 @@
 from bittensor_query import query_scheduler
 import sched, time
 if __name__ == "__main__":
-    ### Declare variables
+    ### START: You should change the variables below as needed.
+
     # The name to show in the pings to the Global Webhook
     USER="name"
 
@@ -31,6 +32,7 @@ if __name__ == "__main__":
 
     # Show debug messages in the server running the script
     DEBUG="True"
+    ### END: You should change the variables above as needed.
 
     config = {"USER": USER, "WALLET_NAME": WALLET_NAME, "SUBTENSOR_NETWORK": SUBTENSOR_NETWORK, "SUBTENSOR_CHAIN_ENDPOINT": SUBTENSOR_CHAIN_ENDPOINT, "TRUST_THRESHOLD": TRUST_THRESHOLD, "PY_TIMEZONE": PY_TIMEZONE, "DEBUG": DEBUG, "WEBHOOK_USER": WEBHOOK_USER, "WEBHOOK_GLOBAL": WEBHOOK_GLOBAL}
 
