@@ -1,3 +1,5 @@
+## Use at your own risk.
+
 Complete the following steps on the server you will be running this script from:
 - Install bittensor.
 - Regen your public coldkey wallet (or any wallet will do).
