@@ -21,7 +21,7 @@ def query_scheduler(sc, var_dict):
     # Query the metagraph for the miners found on the local system under the provided wallet name
     query_miners(var_dict)
 
-    print(f"Finished {var_dict['wallet_name']} on {dt}")
+    print(f"Finished {var_dict['WALLET_NAME']} on {dt}")
 
     requests.post(
         var_dict['WEBHOOK_GLOBAL'], {"content": f"{var_dict['USER']}: Pinged metagraph on {dt}"}
@@ -45,7 +45,8 @@ def send_dc_notification(message: str, webhook: str):
 
 def query_miners(var_dict):
     """"""
-    user, wallet_name, subtensor_network, subtensor_chain_endpoint, trust_threshold, py_timezone, debug, webhook = var_dict.values()
+    _, wallet_name, subtensor_network, subtensor_chain_endpoint, trust_threshold, py_timezone, debug, webhook, _ = var_dict.values()
+
     timezone = pytz.timezone(py_timezone)
     args = ["overview", "--wallet.name", wallet_name, "--subtensor.network", subtensor_network]
     if subtensor_chain_endpoint is not None:
