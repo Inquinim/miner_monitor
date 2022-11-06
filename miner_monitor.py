@@ -28,7 +28,12 @@ if __name__ == "__main__":
     TRUST_THRESHOLD="0.6"
 
     # Your PYTZ timezone
+    # Note: for some reason, GMT+1 ends up being interpreted as GMT-1 and visa versa
+
+    # How to find timezones (recommended but optional to use your specific timezone)
+    # https://stackoverflow.com/questions/13866926/is-there-a-list-of-pytz-timezones
     PY_TIMEZONE="Etc/GMT+0"
+    
 
     # Show debug messages in the server running the script
     DEBUG="True"
