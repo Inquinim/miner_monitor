@@ -49,6 +49,7 @@ if __name__ == "__main__":
         "DEBUG": DEBUG,
         "WEBHOOK_USER": WEBHOOK_USER,
         "WEBHOOK_GLOBAL": WEBHOOK_GLOBAL,
+        "PING_INTERVAL": PING_INTERVAL,
     }
 
     # This runs immediately and then afterwards every PING_INTERVAL seconds
