@@ -59,6 +59,7 @@ def query_miners(var_dict):
         debug,
         webhook,
         _,
+        _,
     ) = var_dict.values()
 
     timezone = pytz.timezone(py_timezone)
