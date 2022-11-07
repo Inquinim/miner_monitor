@@ -14,7 +14,7 @@ if __name__ == "__main__":
     WEBHOOK_GLOBAL = ""  # Must fill this out
 
     # Run every 300 seconds (5 mins)
-    PING_INTERVAL = "300"
+    PING_INTERVAL = 300
 
     # Cold wallet name (on the server)
     WALLET_NAME = "wallet"
